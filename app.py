@@ -66,7 +66,7 @@ if data is not None:
             st.write(s2_r1_errors)
             results.update({'stage2_1_trials' : [s2_r1_trials] , s2_r1_answers.columns[0] : [s2_r1_answers['repkata1.corr'].to_string(index=False)],s2_r1_answers.columns[1] : [s2_r1_answers['repkata1.keys'].to_string(index=False)] , 'srage2_1_incorrect' : [[s2_r1_errors]]})
 
-     with col2:
+        with col2:
             if 'repkata1bis.keys' in df:
                 s2_r2_trials = df['repkata1bis.keys'].loc[df['repkata1bis.keys'].isin(['right', 'left']) ].count()
                 s2_r2_answers = df.loc[df['repkata1bis.keys'].isin(['right', 'left']), ['repkata1bis.keys', 'repkata1bis.corr']]
