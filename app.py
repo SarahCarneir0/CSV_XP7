@@ -113,15 +113,15 @@ if data is not None:
         subtitle_3 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 3 = Noise</p>'
         st.markdown(subtitle_3, unsafe_allow_html=True)
         
-            if 'repkata2.keys' in df:
-                s3_r1_trials = df['repkata2.keys'].loc[df['repkata2.keys'].isin(['right', 'left']) ].count()
-                s3_r1_answers = df.loc[df['repkata2.keys'].isin(['right', 'left']), ['repkata2.keys', 'repkata2.corr']]
-                s3_r1_errors = s3_r1_answers[s3_r1_answers['repkata2.corr'] == 0].value_counts()
+        if 'repkata2.keys' in df:
+            s3_r1_trials = df['repkata2.keys'].loc[df['repkata2.keys'].isin(['right', 'left']) ].count()
+            s3_r1_answers = df.loc[df['repkata2.keys'].isin(['right', 'left']), ['repkata2.keys', 'repkata2.corr']]
+            s3_r1_errors = s3_r1_answers[s3_r1_answers['repkata2.corr'] == 0].value_counts()
         
-            if 'reppata2.keys' in df:
-                s3_r1_trials = df['reppata2.keys'].loc[df['reppata2.keys'].isin(['right', 'left']) ].count()
-                s3_r1_answers = df.loc[df['reppata2.keys'].isin(['right', 'left']), ['reppata2.keys', 'reppata2.corr']]
-                s3_r1_errors = s3_r1_answers[s3_r1_answers['reppata2.corr'] == 0].value_counts()
+        if 'reppata2.keys' in df:
+            s3_r1_trials = df['reppata2.keys'].loc[df['reppata2.keys'].isin(['right', 'left']) ].count()
+            s3_r1_answers = df.loc[df['reppata2.keys'].isin(['right', 'left']), ['reppata2.keys', 'reppata2.corr']]
+            s3_r1_errors = s3_r1_answers[s3_r1_answers['reppata2.corr'] == 0].value_counts()
         
         st.subheader(f'Total Trials \n {str(s3_r1_trials)}') 
 
