@@ -70,7 +70,7 @@ if data is not None:
             st.write(s2_r1_errors)
             results.update({'stage2_1_trials' : [s2_r1_trials] , s2_r1_answers.columns[0] : [s2_r1_answers['repkata1.corr'].to_string(index=False)],s2_r1_answers.columns[1] : [s2_r1_answers['repkata1.keys'].to_string(index=False)] , 'srage2_1_incorrect' : [[s2_r1_errors]]})
 
-             st.write(s2_r1_errors)
+            st.write(s2_r1_errors)
             results.update({'stage2_1_trials' : [s2_r1_trials] , s2_r1_answers.columns[0] : [s2_r1_answers['reppata1.corr'].to_string(index=False)],s2_r1_answers.columns[1] : [s2_r1_answers['reppata1.keys'].to_string(index=False)] , 'srage2_1_incorrect' : [[s2_r1_errors]]})
        
         with col2:
