@@ -135,16 +135,16 @@ if data is not None:
         st.write(s3_r1_errors)
         results.update({'stage3_1_trials' : [s3_r1_trials] , s3_r1_answers.columns[0] : [s3_r1_answers['reppata2.corr'].to_string(index=False)],s3_r1_answers.columns[1] : [s3_r1_answers['reppata2.keys'].to_string(index=False)] , 'srage3_1_incorrect' : [[s3_r1_errors]]})
 
-            with col2:
-                if 'repkata2bis.keys' in df:
-                    s2_r2_trials = df['repkata2bis.keys'].loc[df['repkata2bis.keys'].isin(['right', 'left']) ].count()
-                    s2_r2_answers = df.loc[df['repkata2bis.keys'].isin(['right', 'left']), ['repkata2bis.keys', 'repkata2bis.corr']]
-                    s2_r2_errors = s2_r2_answers[s2_r2_answers['repkata2bis.corr'] == 0].value_counts()
+        with col2:
+            if 'repkata2bis.keys' in df:
+                s2_r2_trials = df['repkata2bis.keys'].loc[df['repkata2bis.keys'].isin(['right', 'left']) ].count()
+                s2_r2_answers = df.loc[df['repkata2bis.keys'].isin(['right', 'left']), ['repkata2bis.keys', 'repkata2bis.corr']]
+                s2_r2_errors = s2_r2_answers[s2_r2_answers['repkata2bis.corr'] == 0].value_counts()
             
-                elif 'reppata2bis.keys' in df:
-                    s2_r2_trials = df['reppata2bis.keys'].loc[df['reppata2bis.keys'].isin(['right', 'left']) ].count()
-                    s2_r2_answers = df.loc[df['reppata2bis.keys'].isin(['right', 'left']), ['reppata2bis.keys', 'reppata2bis.corr']]
-                    s2_r2_errors = s2_r2_answers[s2_r2_answers['reppata2bis.corr'] == 0].value_counts()
+            elif 'reppata2bis.keys' in df:
+                s2_r2_trials = df['reppata2bis.keys'].loc[df['reppata2bis.keys'].isin(['right', 'left']) ].count()
+                s2_r2_answers = df.loc[df['reppata2bis.keys'].isin(['right', 'left']), ['reppata2bis.keys', 'reppata2bis.corr']]
+                s2_r2_errors = s2_r2_answers[s2_r2_answers['reppata2bis.corr'] == 0].value_counts()
 
                 if int(s2_r2_trials) > 1:
 
