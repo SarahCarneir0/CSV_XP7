@@ -53,6 +53,10 @@ if data is not None:
             s2_r1_trials = df['repkata1.keys'].loc[df['repkata1.keys'].isin(['right', 'left']) ].count()
             s2_r1_answers = df.loc[df['repkata1.keys'].isin(['right', 'left']), ['repkata1.keys', 'repkata1.corr']]
             s2_r1_errors = s2_r1_answers[s2_r1_answers['repkata1.corr'] == 0].value_counts()
+            
+            s2_r1_trials = df['reppata1.keys'].loc[df['reppata1.keys'].isin(['right', 'left']) ].count()
+            s2_r1_answers = df.loc[df['reppata1.keys'].isin(['right', 'left']), ['reppata1.keys', 'reppata1.corr']]
+            s2_r1_errors = s2_r1_answers[s2_r1_answers['reppata1.corr'] == 0].value_counts()
 
             subheader_1 = '<p style="font-family:Courier; color:Black; font-size: 24px; font-weight:bold;">Round 1</p>'
             st.markdown(subheader_1, unsafe_allow_html=True)
@@ -66,12 +70,19 @@ if data is not None:
             st.write(s2_r1_errors)
             results.update({'stage2_1_trials' : [s2_r1_trials] , s2_r1_answers.columns[0] : [s2_r1_answers['repkata1.corr'].to_string(index=False)],s2_r1_answers.columns[1] : [s2_r1_answers['repkata1.keys'].to_string(index=False)] , 'srage2_1_incorrect' : [[s2_r1_errors]]})
 
+             st.write(s2_r1_errors)
+            results.update({'stage2_1_trials' : [s2_r1_trials] , s2_r1_answers.columns[0] : [s2_r1_answers['reppata1.corr'].to_string(index=False)],s2_r1_answers.columns[1] : [s2_r1_answers['reppata1.keys'].to_string(index=False)] , 'srage2_1_incorrect' : [[s2_r1_errors]]})
+       
         with col2:
             if 'repkata1bis.keys' in df:
                 s2_r2_trials = df['repkata1bis.keys'].loc[df['repkata1bis.keys'].isin(['right', 'left']) ].count()
                 s2_r2_answers = df.loc[df['repkata1bis.keys'].isin(['right', 'left']), ['repkata1bis.keys', 'repkata1bis.corr']]
                 s2_r2_errors = s2_r2_answers[s2_r2_answers['repkata1bis.corr'] == 0].value_counts()
-
+            
+            elif 'reppata1bis.keys' in df:
+                s2_r2_trials = df['reppata1bis.keys'].loc[df['reppata1bis.keys'].isin(['right', 'left']) ].count()
+                s2_r2_answers = df.loc[df['reppata1bis.keys'].isin(['right', 'left']), ['reppata1bis.keys', 'reppata1bis.corr']]
+                s2_r2_errors = s2_r2_answers[s2_r2_answers['reppata1bis.corr'] == 0].value_counts()
                 if int(s2_r2_trials) > 1:
 
                     subheader_2 = '<p style="font-family:Courier; color:Black; font-size: 24px; font-weight:bold;">Round 2</p>'
@@ -85,6 +96,11 @@ if data is not None:
                     st.subheader('Total incorrect answers')
                     st.write(s2_r2_errors)
                     results.update({'stage2_2_trials' : [s2_r2_trials] , s2_r2_answers.columns[0] : [s2_r2_answers['repkata1bis.corr'].to_string(index=False)],s2_r2_answers.columns[1] : [s2_r2_answers['repkata1bis.keys'].to_string(index=False)] , 'srage2_2_incorrect' : [[s2_r2_errors]]})
+                    
+                    st.subheader('Total incorrect answers')
+                    st.write(s2_r2_errors)
+                    results.update({'stage2_2_trials' : [s2_r2_trials] , s2_r2_answers.columns[0] : [s2_r2_answers['reppata1bis.corr'].to_string(index=False)],s2_r2_answers.columns[1] : [s2_r2_answers['reppata1bis.keys'].to_string(index=False)] , 'srage2_2_incorrect' : [[s2_r2_errors]]})
+                    
                 else: 
                     subheader_3 = '<p style="font-family:Courier; color:Black; font-size: 24px; font-weight:bold;">No Repetition needed</p>'
                     st.markdown(subheader_3, unsafe_allow_html=True)
@@ -100,6 +116,9 @@ if data is not None:
         s3_r1_answers = df.loc[df['repkata2.keys'].isin(['right', 'left']), ['repkata2.keys', 'repkata2.corr']]
         s3_r1_errors = s3_r1_answers[s3_r1_answers['repkata2.corr'] == 0].value_counts()
         
+        s3_r1_trials = df['reppata2.keys'].loc[df['reppata2.keys'].isin(['right', 'left']) ].count()
+        s3_r1_answers = df.loc[df['reppata2.keys'].isin(['right', 'left']), ['reppata2.keys', 'reppata2.corr']]
+        s3_r1_errors = s3_r1_answers[s3_r1_answers['reppata2.corr'] == 0].value_counts()
         st.subheader(f'Total Trials \n {str(s3_r1_trials)}') 
 
         st.subheader('List Answers')
@@ -108,12 +127,20 @@ if data is not None:
         st.subheader('Total incorrect answers')
         st.write(s3_r1_errors)
         results.update({'stage3_1_trials' : [s3_r1_trials] , s3_r1_answers.columns[0] : [s3_r1_answers['repkata2.corr'].to_string(index=False)],s3_r1_answers.columns[1] : [s3_r1_answers['repkata2.keys'].to_string(index=False)] , 'srage3_1_incorrect' : [[s3_r1_errors]]})
+        
+        st.write(s3_r1_errors)
+        results.update({'stage3_1_trials' : [s3_r1_trials] , s3_r1_answers.columns[0] : [s3_r1_answers['reppata2.corr'].to_string(index=False)],s3_r1_answers.columns[1] : [s3_r1_answers['reppata2.keys'].to_string(index=False)] , 'srage3_1_incorrect' : [[s3_r1_errors]]})
 
         with col2:
             if 'repkata2bis.keys' in df:
                 s2_r2_trials = df['repkata2bis.keys'].loc[df['repkata2bis.keys'].isin(['right', 'left']) ].count()
                 s2_r2_answers = df.loc[df['repkata2bis.keys'].isin(['right', 'left']), ['repkata2bis.keys', 'repkata2bis.corr']]
                 s2_r2_errors = s2_r2_answers[s2_r2_answers['repkata2bis.corr'] == 0].value_counts()
+            
+            elif 'reppata2bis.keys' in df:
+                s2_r2_trials = df['reppata2bis.keys'].loc[df['reppata2bis.keys'].isin(['right', 'left']) ].count()
+                s2_r2_answers = df.loc[df['reppata2bis.keys'].isin(['right', 'left']), ['reppata2bis.keys', 'reppata2bis.corr']]
+                s2_r2_errors = s2_r2_answers[s2_r2_answers['reppata2bis.corr'] == 0].value_counts()
 
                 if int(s2_r2_trials) > 1:
 
@@ -128,6 +155,11 @@ if data is not None:
                     st.subheader('Total incorrect answers')
                     st.write(s2_r2_errors)
                     results.update({'stage2_2_trials' : [s2_r2_trials] , s2_r2_answers.columns[0] : [s2_r2_answers['repkata2bis.corr'].to_string(index=False)],s2_r2_answers.columns[1] : [s2_r2_answers['repkata2bis.keys'].to_string(index=False)] , 'srage2_2_incorrect' : [[s2_r2_errors]]})
+                 
+                    st.subheader('Total incorrect answers')
+                    st.write(s2_r2_errors)
+                    results.update({'stage2_2_trials' : [s2_r2_trials] , s2_r2_answers.columns[0] : [s2_r2_answers['reppata2bis.corr'].to_string(index=False)],s2_r2_answers.columns[1] : [s2_r2_answers['reppata2bis.keys'].to_string(index=False)] , 'srage2_2_incorrect' : [[s2_r2_errors]]})
+             
                 else: 
                     subheader_3 = '<p style="font-family:Courier; color:Black; font-size: 24px; font-weight:bold;">No Repetition needed</p>'
                     st.markdown(subheader_3, unsafe_allow_html=True)
